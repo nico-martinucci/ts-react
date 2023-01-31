@@ -10,10 +10,18 @@
  * BoxList -> Box
  */
 
-function Box({ id, width = 5, height = 5, backgroundColor, remove }) {
+export interface IBoxProps {
+  id: string,
+  width: number,
+  height: number,
+  backgroundColor: string,
+  remove: Function
+}
+
+function Box({ id, width = 5, height = 5, backgroundColor, remove }: IBoxProps): JSX.Element {
 
   /** Remove a box. */
-  function handleRemove() {
+  function handleRemove(): void {
     remove(id);
   }
 

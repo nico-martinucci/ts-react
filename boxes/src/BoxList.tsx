@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Box from "./Box";
 import NewBoxForm from "./NewBoxForm";
+import { IBoxProps } from "./Box";
 
 /** Manage list of boxes
  *
@@ -8,16 +9,16 @@ import NewBoxForm from "./NewBoxForm";
  * - boxes: [ { id, width, height, backgroundColor }, ... ]
  */
 
-function BoxList() {
-  const [boxes, setBoxes] = useState([])
+function BoxList(): JSX.Element {
+  const [boxes, setBoxes] = useState<IBoxProps[]>([])
 
   /** add box with given { id, width, height, backgroundColor } */
-  function add(newBox) {
+  function add(newBox: IBoxProps): void {
     setBoxes(boxes => [...boxes, newBox]);
   }
 
   /** remove box matching that id. */
-  function remove(id: string) {
+  function remove(id: string): void {
     setBoxes(boxes => boxes.filter(box => box.id !== id));
   }
 
